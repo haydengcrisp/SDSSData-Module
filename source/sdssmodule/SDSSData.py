@@ -15,8 +15,9 @@ class SDSSData(object):
         if self._ra == None:
             # opens fits file
             hdu_list = fits.open(self.datafile) # Not sure if this is right...
+            hdu = hdu_list[0]
             # read the right HDU
-            self._ra = hdu_list.header["ra"]
+            self._ra = hdu.header["ra"]
         return self._ra
 
     @property
