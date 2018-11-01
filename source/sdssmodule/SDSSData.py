@@ -1,3 +1,5 @@
+from astropy.io import fits
+
 class SDSSData(object):
     def __init__(self, filepath=None):
         if filepath is None:
@@ -19,6 +21,7 @@ class SDSSData(object):
         '''Returns the Declination of the spectrum'''
         if self._dec == None:
             # open fits file
+            hdu_list = fits.open(self.datafile) # Not sure if this is right...
             # read the right HDU
             self._dec = hdu.header["dec"]
         return self._ra
