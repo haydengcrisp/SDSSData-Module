@@ -28,7 +28,7 @@ class SDSSData(object):
             hdu_list = fits.open(self.filepath) # Not sure if this is right...
             hdu = hdu_list[0]
             # read the right HDU
-            self._dec = hdu_list.header["dec"]
+            self._dec = hdu.header["dec"]
         return self._ra
 
 '''--------- API ---------
