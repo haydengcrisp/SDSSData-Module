@@ -13,8 +13,9 @@ class SDSSData(object):
         '''Returns the Right Assention of the spectrum in degrees'''
         if self._ra == None:
             # opens fits file
+            hdu_list = fits.open(self.datafile) # Not sure if this is right...
             # read the right HDU
-            self._ra = hdu.header["ra"]
+            self._ra = hdu_list.header["ra"]
         return self._ra
 
     def dec(self):
@@ -23,7 +24,7 @@ class SDSSData(object):
             # open fits file
             hdu_list = fits.open(self.datafile) # Not sure if this is right...
             # read the right HDU
-            self._dec = hdu.header["dec"]
+            self._dec = hdu_list.header["dec"]
         return self._ra
 
 '''--------- API ---------
