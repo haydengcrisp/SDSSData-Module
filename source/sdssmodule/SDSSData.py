@@ -29,7 +29,20 @@ class SDSSData(object):
             hdu = hdu_list[0]
             # read the right HDU
             self._dec = hdu.header["dec"]
-        return self._ra
+        return self._dec
+
+
+    @property
+    def name(self):
+        '''Returns the name header'''
+        if self._name == None:
+            # open fits file
+            hdu_list = fits.open(self.filepath) # Not sure if this is right...
+            hdu = hdu_list[0]
+            # read the right HDU
+            self._name = hdu.header["name"]
+        return self._name
+
 
 '''--------- API ---------
 from package import SDSSData
