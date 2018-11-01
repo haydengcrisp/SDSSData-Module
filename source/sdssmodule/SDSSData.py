@@ -9,6 +9,7 @@ class SDSSData(object):
         self._ra = None
         self._dec = None
 
+    @property
     def ra(self):
         '''Returns the Right Assention of the spectrum in degrees'''
         if self._ra == None:
@@ -18,6 +19,7 @@ class SDSSData(object):
             self._ra = hdu_list.header["ra"]
         return self._ra
 
+    @property
     def dec(self):
         '''Returns the Declination of the spectrum'''
         if self._dec == None:
