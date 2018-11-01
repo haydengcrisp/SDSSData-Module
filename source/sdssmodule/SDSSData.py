@@ -5,7 +5,7 @@ class SDSSData(object):
         if filepath is None:
             raise SDSSFileNotSpecified("Must define a file")
         self.filepath = filepath
-        self.datafile = open(self.filepath)
+        #self.datafile = open(self.filepath)
         self._ra = None
         self._dec = None
 
@@ -14,7 +14,7 @@ class SDSSData(object):
         '''Returns the Right Assention of the spectrum in degrees'''
         if self._ra == None:
             # opens fits file
-            hdu_list = fits.open(self.datafile) # Not sure if this is right...
+            hdu_list = fits.open(self.filepath)
             hdu = hdu_list[0]
             # read the right HDU
             self._ra = hdu.header["ra"]
