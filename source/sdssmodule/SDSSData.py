@@ -8,11 +8,19 @@ class SDSSData(object):
         self._dec = None
 
     def ra(self):
-        '''Returns the RA of the spectrum in degrees'''
+        '''Returns the Right Assention of the spectrum in degrees'''
         if self._ra == None:
             # opens fits file
             # read the right HDU
             self._ra = hdu.header["ra"]
+        return self._ra
+
+    def dec(self):
+        '''Returns the Declination of the spectrum'''
+        if self._dec == None:
+            # open fits file
+            # read the right HDU
+            self._dec = hdu.header["dec"]
         return self._ra
 
 '''--------- API ---------
