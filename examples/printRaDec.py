@@ -16,11 +16,10 @@ assert os.scandir(directory) is not None, f'{directory} has no files! Please che
 
 for file in os.scandir(directory):
 	if '.fits' in file.name:
-		print(file.name)
-		print(f'{directory}{file.name}')
-		gal = SDSSData(f'{directory}{file.name}') 
+
+		gal = SDSSData(f'{directory}{file.name}') #concatenating strings to make a valid filename
 		#assert gal.name is not None, f'{file.name} has no name data! Please check the file and try again.'
-		assert gal.ra is not None, f'file.name has no RA data! Please check the file and try again.' 
-		assert gal.dec is not None, f'file.name has no dec data! Please check the file and try again.' 
+		assert gal.ra is not None, f'{file.name} has no RA data! Please check the file and try again.' 
+		assert gal.dec is not None, f'{file.name} has no dec data! Please check the file and try again.' 
  
-		print(f'Galaxy gal.name is located at RA {gal.ra}%.2f and dec {gal.dec}%.2f.')
+		print(f'Galaxy {gal.name} is located at RA {gal.ra:.2f} and dec {gal.dec:.2f}.')
