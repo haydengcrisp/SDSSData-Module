@@ -8,6 +8,7 @@ class SDSSData(object):
         #self.datafile = open(self.filepath)
         self._ra = None
         self._dec = None
+        self._name = None
 
     @property
     def ra(self):
